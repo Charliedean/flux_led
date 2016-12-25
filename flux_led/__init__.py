@@ -671,10 +671,7 @@ class WifiLedBulb():
         msg.append(int(g))
         msg.append(int(b))
         msg.append(int(w))
-
-        if self.protocol == "LEDENET":
-            msg.append(0x00)
-
+        msg.append(0x00)
         msg.append(0x0f)
         msg.append(0x0f)
         try:
@@ -702,10 +699,7 @@ class WifiLedBulb():
         msg.append(int(r))
         msg.append(int(g))
         msg.append(int(b))
-
-        if self.protocol == "LEDENET":
-            msg.append(0x00)
-
+        msg.append(0x00)
         msg.append(0x00)
         msg.append(0xf0)
         msg.append(0x0f)
