@@ -638,10 +638,7 @@ class WifiLedBulb():
         msg.append(0x00)
         msg.append(0x00)
         msg.append(int(level))
-
-        if self.protocol == "LEDENET":
-            msg.append(int(level))
-
+        msg.append(int(level))
         msg.append(0x0f)
         msg.append(0x0f)
         try:
@@ -671,6 +668,7 @@ class WifiLedBulb():
         msg.append(int(g))
         msg.append(int(b))
         msg.append(int(w))
+        msg.append(0x00)
         msg.append(0x00)
         msg.append(0x0f)
         msg.append(0x0f)
@@ -775,6 +773,7 @@ class WifiLedBulb():
         msg.append(now.second)
         msg.append(now.isoweekday()) # day of week
         msg.append(0x00)
+        msg.append(0x00)
         msg.append(0x0f)
         self._send_msg(msg)
 
@@ -877,6 +876,7 @@ class WifiLedBulb():
             for i in range(16-len(rgb_list)):
                 msg.extend(bytearray([0, 1, 2, 3]))
 
+        msg.append(0x00)
         msg.append(0x00)
         msg.append(utils.speedToDelay(speed))
 
